@@ -25,7 +25,186 @@
         </section>
         </nav>
     </div>
-    
     </header>
+    <br><br><br>
+    <div class="container">
+        <p class="menuB">Breakfast</p>
+        <section class="food" id="breakfast-section"></section>
+        <p class="menuB">Lunch & Dinner</p>
+        <section class="food" id="lunch&dinner-section"></section><br>
+        <section class="food" id="lunch&dinner1-section"></section> 
+        <p class="menuB">Sides</p>
+        <section class="food" id="sides-section"></section> 
+        <p class="menuB">Drinks</p>
+        <section class="food" id="drink-section"></section> 
+    </div>
+    
+        <br>
+            <!--Email subscription for coupon and discount-->
+    <section>
+        <form class="subscribe">
+            <h2>SUBSCRIBE</h2>
+            <p>Sign up to hear from us about sales, coupons and events</p>
+            <input type="email" id="sub" placeholder="Email">
+            <button id="sub1" onclick="subscribe()">Sign up</button>
+        </form>
+        <!--alert message with the use of javascript-->
+        <script>
+            const CafeMenuItem = [
+                {name: 'Bread and Eggs', price: 15.00, image: "../images/bread&eggs.jpg"},
+                {name: 'Beanscake and pap', price: 15.99, image: "../images/pap&akara.jpg"},
+                {name: 'Noodles and Eggs', price: 12.99, image: "../images/noodles.jpg"},
+            ];
+            function generateCafeMenuItem(menudata){
+                const breakfastsection = document.getElementById("breakfast-section");
+                breakfastsection.innerHTML = "";
+                menudata.forEach(item => {
+                    const menuitem = document.createElement('div');
+                    menuitem.innerHTML = `
+                    <button>
+                        <img src="${item.image}"><br>
+                        <p><b>${item.name}</b></p>
+                        <p><b>$${item.price.toFixed(2)}</b></p>
+                        <input type='button' onclick='tocart(${"item.name"}, ${item.price})' class='addtocart' value="Add to Cart">
+                    </button>
+                `;
+                   
+                 breakfastsection.appendChild(menuitem)
+
+                });
+               
+            }
+            generateCafeMenuItem(CafeMenuItem)
+
+            const CafeMenuItem1 = [
+                {name: 'Abula(Amala, assoted beef soup and ewedu)', price: 25.00, image: "../images/AmalaEwedujpeg.jpeg"},
+                {name: 'Poundedyam and melon Vegetable soup', price: 25.00, image: "../images/Poundedyamjpg.jpg"},
+                {name: 'Ayamashe and White rice', price: 22.99, image: "../images/ayamashe.jpg"},
+                {name: 'FriedEggs and Yam', price: 23.99, image: "../images/yam&eggs.jpg"},
+            ];
+            function generateCafeMenuItem1(menudata1){
+            const lunchsection = document.getElementById("lunch&dinner-section");
+            lunchsection.innerHTML = '';
+            menudata1.forEach(item => {
+                const menuitem1 = document.createElement('div');
+                menuitem1.innerHTML = `
+                    <button>
+                        <img src="${item.image}"><br>
+                        <p><b>${item.name}</b></p>
+                        <p><b>$${item.price.toFixed(2)}</b></p>
+                        <input type='button' onclick='tocart(${"item.name"}, ${item.price})' class='addtocart' value="Add to Cart">
+                    </button>
+                `;
+                lunchsection.appendChild(menuitem1)
+            });
+            }
+            generateCafeMenuItem1(CafeMenuItem1)
+
+            const CafeMenuItem2 = [
+                {name: 'Jollofrice and Beef', price: 22.00, image: "../images/jollofrice.jpg"},
+                {name: 'Friedrice and Beef', price: 22.00, image: "../images/friedrice.jpg"},
+                {name: 'Beans and Agege bread', price: 19.99, image: "../images/Beans.jpg"},
+            ];
+            function generateCafeMenuItem2(menudata2){
+            const lunchsection1 = document.getElementById("lunch&dinner1-section");
+            lunchsection1.innerHTML = '';
+            menudata2.forEach(item => {
+                const menuitem2 = document.createElement('div');
+                menuitem2.innerHTML = `
+                    <button>
+                        <img src="${item.image}"><br>
+                        <p><b>${item.name}</b></p>
+                        <p><b>$${item.price.toFixed(2)}</b></p>
+                        <input type='button' onclick='tocart(${"item.name"}, ${item.price})' class='addtocart' value="Add to Cart">
+                    </button>
+                `;
+                lunchsection1.appendChild(menuitem2)
+            });
+            }
+            generateCafeMenuItem2(CafeMenuItem2)
+
+            const CafeMenuSide = [
+                {name: 'Plantain', price: 9.99, image: "../images/plantainjpg.jpg"},
+                {name: 'Beans pudding(Moi Moi)', price: 9.99, image: "../images/moimoi.jpg"},
+                {name: 'Plantain Gizzard', price: 10.99, image: "../images/gizzaddodo.jpg"},
+            ];
+            function generateCafeMenuSide(sidedata){
+            const sidesection = document.getElementById("sides-section");
+            sidesection.innerHTML = '';
+            sidedata.forEach(item => {
+                const menuside = document.createElement('div');
+                menuside.innerHTML = `
+                    <button>
+                        <img src="${item.image}"><br>
+                        <p><b>${item.name}</b></p>
+                        <p><b>$${item.price.toFixed(2)}</b></p>
+                        <input type='button' onclick='tocart(${"item.name"}, ${item.price})' class='addtocart' value="Add to Cart">
+                    </button>
+                `;
+                sidesection.appendChild(menuside)
+            });
+            }
+            generateCafeMenuSide(CafeMenuSide)
+
+            const CafeMenuDrink = [
+                {name: 'Water', price: 2.99, image: "../images/water.jpg"},
+                {name: 'Fanta', price: 3.99, image: "../images/fanta.jpg"},
+                {name: 'Sprite', price: 3.99, image: "../images/sprite.jpg"},
+                {name: 'Cocacola', price: 3.99, image: "../images/coke.jpg"},
+            ];
+            function generateCafeMenuDrink(drinkdata){
+            const drinksection = document.getElementById("drink-section");
+            drinksection.innerHTML = '';
+            drinkdata.forEach(item => {
+                const menudrink = document.createElement('div');
+                menudrink.innerHTML = `
+                    <button>
+                        <img src="${item.image}"><br>
+                        <p><b>${item.name}</b></p>
+                        <p><b>$${item.price.toFixed(2)}</b></p>
+                        <input type='button' onclick='tocart(${"item.name"}, ${item.price})' class='addtocart' value="Add to Cart">
+                    </button>
+                `;
+                drinksection.appendChild(menudrink)
+            });
+            }
+            generateCafeMenuDrink(CafeMenuDrink)
+            function subscribe(){
+                    alert("Thank you for subscribing!");
+                    }
+        </script>
+    </section>
+    <br><br>
+    <!--Cafeteria Copyright-->
+    <footer>
+        <p>Copyright &copy; 2024 naija cuisine cafeteria. All right reserved</p>
+    </footer>
+    <hr>
+    <!--Business operation hours and location-->
+    <aside class="operating">
+    <section class="hours">
+        <h3>Opening Hours</h3>
+        <p>Monday - 10am to 8pm</p>
+        <p>Tuesday - 10am to 8pm</p>
+        <p>Wednessday - 11am to 7pm</p>
+        <p>Thursday - 9am to 6pm </p>
+        <p>Friday - 9am to 6pm </p>
+        <p>Saturday - 11am to 4pm</p>
+        <p>sunday - closed</p>
+    </section>
+    
+    <section class="Contact">
+        <h3>Contact</h3>
+        <p>Phone: (832) 576-8400</p>
+        <p>Email: naijacuisine@gmail.com</p>
+    </section>
+    
+    <section class="location">
+        <h3>Location</h3>
+        <p>14000 University Blvd, Sugarland</p>
+        <p>Texas 77479</p>
+    </section>
+</aside>
+
 </body>
 </html>

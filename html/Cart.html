@@ -27,5 +27,41 @@
     </div>
     
     </header>
+    <br><br><br>
+    <div class="menuB">
+        <p> Your Shopping Cart</p>
+    </div>
+    <b></b>
+    <div class="cart">
+        <ul id="CartItems"></ul>
+        <br><br>
+        <button  onclick="checkout()">Checkout</button>
+        <p id="Total"></p>
+    </div>
+    <script>
+         var ShoppingItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        function updateCart() {
+            var cartList = document.getElementById("CartItems");
+            cartList.innerHTML = "";
+            ShoppingItems.forEach(function(item) {
+                var li = document.createElement('li');
+                li.textContent = item.name + '- $' + item.price;
+                cartList.appendChild(li);
+            });
+            calculateTotal();
+        }
+        function checkout() {
+            document.getElementById('Total').innerHTML = "Total Amount: $" + calculateTotal();
+        }
+        function calculateTotal() {
+            var total = 0;
+            ShoppingItems.forEach(function(item) {
+                total += item.price;
+            });
+            return total;
+        }
+        updateCart();
+
+    </script>
 </body>
 </html>
